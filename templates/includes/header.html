@@ -185,17 +185,3 @@
     }
 }
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const navToggler = document.querySelector('.site-nav__toggler');
-    const navMenu = document.querySelector('.site-nav__menu');
-
-    if (navToggler && navMenu) {
-        navToggler.addEventListener('click', () => {
-            navToggler.classList.toggle('is-active');
-            navMenu.classList.toggle('is-active');
-        });
-    }
-});
-</script>

@@ -1613,3 +1613,28 @@ font-size: 0.9rem;
         left: unset;
     }
 }
+
+/* Contact Form Button */
+.btn-contact-submit {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-contact-submit:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+.btn-contact-submit:active {
+    background-color: #004085;
+    border-color: #004085;
+    transform: translateY(0);
+    box-shadow: none;
+}
