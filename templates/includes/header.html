@@ -1,199 +1,201 @@
 {% load static %}
-<header class="header">
-    <div class="header-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-md-12 left-item"></div>
-                <div class="col-lg-5 d-none d-lg-block right-item">
-                    <ul>
-                        <li>Workers of the world, unite!</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<header class="site-header">
+    <div class="site-header__container">
+        <a href="{% url 'home' %}" class="site-header__logo">
+            <img src="{% static 'assets/images/palestine-flag-png-38276.png' %}" alt="Gaza Aid Encyclopedia Logo">
+            <span>Gaza Aid Encyclopedia</span>
+        </a>
 
-    <nav class="nav container">
-        <div class="nav__data">
-            <a href="#" class="nav__logo">
-                <img src="{% static 'assets/images/palestine-flag-png-38276.png' %}" alt="Logo">
-                Gaza Aid Encyclopedia
-            </a>
-            <div class="nav__menu-container">
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="ri-menu-line nav__burger"></i>
-                    <i class="ri-close-line nav__close"></i>
-                </div>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li><a href="{% url 'home' %}" class="nav__link" data-i18n="home">Home</a></li>
-                        <li><a href="{% url 'links' %}" class="nav__link" data-i18n="links">Links</a></li>
-                        <li><a href="{% url 'articles' %}" class="nav__link" data-i18n="articles">Articles</a></li>
-                        <li><a href="{% url 'contact' %}" class="nav__link" data-i18n="contact">Contact Us</a></li>
-                    </ul>
-                </div>
+        <nav class="site-nav">
+            <button class="site-nav__toggler" aria-label="Toggle navigation">
+                <span class="site-nav__toggler-icon"></span>
+            </button>
+            <div class="site-nav__menu">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item"><a href="{% url 'home' %}" class="site-nav__link">Home</a></li>
+                    <li class="site-nav__item"><a href="{% url 'links' %}" class="site-nav__link">Links</a></li>
+                    <li class="site-nav__item"><a href="{% url 'articles' %}" class="site-nav__link">Articles</a></li>
+                    <li class="site-nav__item"><a href="{% url 'contact' %}" class="site-nav__link">Contact Us</a></li>
+                </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 </header>
 
 <style>
-/* Header Styles */
 :root {
-    --header-height: 4rem;
-    --header-background: #ffffff; /* Explicitly set to white */
-    --color-text: #333;
-    --color-primary: #007bff;
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-    --z-header: 1000;
-    --container-max-width: 1200px;
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --transition-base: 0.3s ease;
-    --font-weight-medium: 500;
+    --header-bg: #ffffff;
+    --text-color: #333333;
+    --primary-color: #149954;
+    --header-height: 70px;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition-smooth: all 0.3s ease-in-out;
 }
 
-.header {
+.site-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: auto; /* Allow dynamic height */
-    background: var(--header-background); /* Full white background */
-    box-shadow: var(--shadow-sm);
-    z-index: var(--z-header);
-    overflow: hidden; /* Prevent content overflow */
-}
-
-.header-top {
-    width: 100%;
-    background: var(--header-background); /* Full white background */
-    padding: var(--spacing-xs) 0;
-}
-
-.nav {
     height: var(--header-height);
+    background-color: var(--header-bg);
+    box-shadow: var(--shadow-light);
+    z-index: 1000;
     display: flex;
     align-items: center;
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
 }
 
-.nav__data {
+.site-header__container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.nav__logo {
+.site-header__logo {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
     text-decoration: none;
-    color: var(--color-text);
-    font-weight: var(--font-weight-medium);
-    margin-right: auto; /* Pushes logo to far left */
+    color: var(--text-color);
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
-.nav__logo img {
-    width: 70px;
-    height: auto;
+.site-header__logo img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
 }
 
-.nav__menu-container {
+.site-nav__list {
     display: flex;
     align-items: center;
-}
-
-.nav__menu {
-    display: flex;
-    align-items: center;
-}
-
-.nav__toggle {
-    display: none;
-}
-
-.nav__list {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
     list-style: none;
     margin: 0;
     padding: 0;
+    gap: 30px;
 }
 
-.nav__link {
-    color: var(--color-text);
-    font-weight: var(--font-weight-medium);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: 4px;
-    transition: all var(--transition-base);
+.site-nav__link {
     text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: var(--transition-smooth);
 }
 
-.nav__link:hover,
-.nav__link:focus {
-    color: var(--color-primary);
-    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+.site-nav__link:hover,
+.site-nav__link:focus {
+    color: var(--primary-color);
+    background-color: rgba(20, 153, 84, 0.1);
 }
 
-@media screen and (max-width: 1118px) {
-    .nav {
-        height: var(--header-height);
-    }
+.site-nav__toggler {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
 
-    .nav__menu-container {
-        position: relative;
-    }
+.site-nav__toggler-icon {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: var(--transition-smooth);
+}
 
-    .nav__menu {
+.site-nav__toggler-icon::before,
+.site-nav__toggler-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: var(--transition-smooth);
+}
+
+.site-nav__toggler-icon::before {
+    top: -8px;
+}
+
+.site-nav__toggler-icon::after {
+    bottom: -8px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .site-nav__menu {
         position: fixed;
-        top: var(--header-height);
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - var(--header-height));
-        background: var(--header-background); /* Full white background */
-        padding: var(--spacing-md);
-        transition: left var(--transition-base);
-        overflow-y: auto;
-    }
-
-    .nav__menu.show-menu {
-        left: 0;
-    }
-
-    .nav__toggle {
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: var(--header-bg);
+        box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        padding-top: calc(var(--header-height) + 20px);
         display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 2.5rem;
-        height: 2.5rem;
-        cursor: pointer;
-    }
-
-    .nav__list {
         flex-direction: column;
-        align-items: stretch;
-        gap: var(--spacing-sm);
     }
 
-    .nav__link {
-        padding: var(--spacing-sm) var(--spacing-md);
+    .site-nav__menu.is-active {
+        right: 0;
+    }
+
+    .site-nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0 30px;
+        gap: 15px;
+    }
+
+    .site-nav__link {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    .site-nav__toggler {
+        display: block;
+    }
+
+    .site-nav__toggler.is-active .site-nav__toggler-icon {
+        background-color: transparent;
+    }
+
+    .site-nav__toggler.is-active .site-nav__toggler-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .site-nav__toggler.is-active .site-nav__toggler-icon::after {
+        transform: rotate(-45deg);
+        bottom: 0;
     }
 }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    const navToggler = document.querySelector('.site-nav__toggler');
+    const navMenu = document.querySelector('.site-nav__menu');
 
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('show-menu');
-    });
+    if (navToggler && navMenu) {
+        navToggler.addEventListener('click', () => {
+            navToggler.classList.toggle('is-active');
+            navMenu.classList.toggle('is-active');
+        });
+    }
 });
 </script>
