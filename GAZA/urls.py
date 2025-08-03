@@ -17,17 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import home
-from articles.views import article_view
 from django.conf import settings
 from django.conf.urls.static import static
 from links.views import Link_view
-
+from articles.views import article_view, article_detailed_view
+from contactus.views import contactus_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home, name='home'),
-    path('articles/', article_view, name='articles'),
     path('links/', Link_view, name='links'),
-
+    path('articles/', article_view, name='articles'),
+    path('articles/<int:article_id>/', article_detailed_view, name='article_detail'),
+    path('contactus/', contactus_view, name='contactus'),
 ]
 
 

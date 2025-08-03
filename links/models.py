@@ -8,6 +8,7 @@ class Link(models.Model):
     title = models.fields.CharField(max_length=100)
     content = models.fields.CharField(max_length=1000)
     date = models.fields.DateField()
+    link = models.URLField(max_length=500)
 
     def __str__(self):
      return f'{self.title}'

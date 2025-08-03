@@ -2258,45 +2258,8 @@ margin-bottom:20% ;
        }
 
 
-/*//////////////////////////////////////*/
-    .change_text {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease-out;
-        display: none;
-    }
 
-    .change_text.show {
-        max-height: 1000px; /* Adjust as needed */
-        transition: max-height 0.5s ease-in;
-        display: block;
-    }
 
-    .second_h2 { font-size:20px;
-                  color: #2E8BC0;}
 
-        .second_h2 ul li { margin:0px; padding:0px; text-align: left;} 
-        
 
- .paragform{ margin-top:2%; margin-bottom:2%; font-family: Inter,sans-serif;
-  color: #020101B8;
-  font-size: 15px; }   
-
-  .paragformimg{ 
-
-    margin-top:2%; margin-bottom:2%;  width:70%; height:auto;  
-     margin-left: auto;
-    margin-right: auto; }
  
- .formation-title h2{ 
-
-  font-size:2.052em;
-  margin: 0px 0px 0px 0px;
-  font-family: "Inter", Sans-serif;
-  font-weight: 500; }             
-
- .specialité { margin-top:2%; }
-
-
-
- .incubateurlogo{  height:200px;width:200px;  }

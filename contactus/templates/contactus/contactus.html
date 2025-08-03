@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="page-nav no-margin row">
+      <div class="container">
+          <div class="row">
+              <h2>Contact Us</h2>
+              <ul>
+                  <li><a href="{% url 'home'%}"><i class="fas fa-home"></i> Home</a></li>
+                  <li><i class="fas fa-angle-double-right"></i> contact us</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+<div class="container">
+
+
+  <form method="POST">
+    {% csrf_token %}
+    
+    <div style="margin-bottom: 1.5em;">
+      <label for="name">Name</label><br>
+      <input type="text" id="name" name="name" class="formulaireNewsletter" placeholder="Your full name" required>
+    </div>
+
+    <div style="margin-bottom: 1.5em;">
+      <label for="email">Email</label><br>
+      <input type="email" id="email" name="email" class="formulaireNewsletter" placeholder="you@example.com" required>
+    </div>
+
+    <div style="margin-bottom: 1.5em;">
+      <label for="message">Message</label><br>
+      <textarea id="message" name="message" rows="5" class="formulaireNewsletter" placeholder="Type your message here..." required style="width: 100%;"></textarea>
+    </div>
+
+    <input type="submit" value="Send Message" class="buttonR">
+  </form>
+</div>
+
+{% endblock %}

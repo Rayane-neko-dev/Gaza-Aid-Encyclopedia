@@ -5,7 +5,7 @@
         <img src="{{ post.image.url }}" alt="">
         <div class="cource-det">
             <h6>
-                <a href="#">
+                <a href="{% url 'article_detail' post.article_id %}" style="color: black; text-decoration: none;">
                     {{ post.title }}
                 </a>
             </h6>
