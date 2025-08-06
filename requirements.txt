@@ -1,0 +1,13 @@
+asgiref==3.8.1
+certifi==2025.7.14
+charset-normalizer==3.4.2
+Django==5.1.6
+django-multiselectfield==1.0.1
+django-widget-tweaks==1.5.0
+idna==3.10
+pillow==11.2.1
+pyngrok==7.2.12
+PyYAML==6.0.2
+requests==2.32.4
+sqlparse==0.5.3
+urllib3==2.5.0
