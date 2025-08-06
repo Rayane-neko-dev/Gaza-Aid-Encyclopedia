@@ -26,7 +26,7 @@ SECRET_KEY = 'p&_y=3x5r_ua58$nw%x()irp(1n8mmg+dlj0^r&uuo9##%d_e6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://gaza-aid-encyclopedia.onrender.com/']
+ALLOWED_HOSTS = ['gaza-aid-encyclopedia.onrender.com/']
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
