@@ -1,1 +1,1 @@
-web: gunicorn your_project_name.wsgi
+web: python manage.py migrate && python create_superuser.py && gunicorn yourproject.wsgi
