@@ -81,13 +81,9 @@ WSGI_APPLICATION = 'GAZA.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-       postgresql://gazapostgres_user:s6uP3j2Md8hIDuFI25ghPDwfpVbKrzjc@dpg-d2agnapr0fns73cju690-a.oregon-postgres.render.com/gazapostgres
-    }
+    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
