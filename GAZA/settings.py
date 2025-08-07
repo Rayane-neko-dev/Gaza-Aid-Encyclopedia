@@ -84,8 +84,7 @@ WSGI_APPLICATION = 'GAZA.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       postgresql://gazapostgres_user:s6uP3j2Md8hIDuFI25ghPDwfpVbKrzjc@dpg-d2agnapr0fns73cju690-a.oregon-postgres.render.com/gazapostgres
     }
 }
 
