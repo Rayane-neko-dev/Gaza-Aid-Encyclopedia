@@ -158,4 +158,13 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '522791469786293',
     'API_SECRET': 'pxSojL2MAQB0YiFIL7WBcWtio3g',
 }
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
+# Allow local dev without env var by falling back to dict config
+if not CLOUDINARY_URL:
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': 'dqpdbr27f',
+        'API_KEY': '522791469786293',
+        'API_SECRET': 'pxSojL2MAQB0YiFIL7WBcWtio3g',
+    }
 
