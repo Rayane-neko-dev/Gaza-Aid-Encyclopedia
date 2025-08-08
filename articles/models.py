@@ -1,10 +1,11 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
 class Article(models.Model):
     article_id = models.fields.IntegerField()
-    image =models.ImageField(upload_to='images/article', null=True, blank=True)
+    image = CloudinaryField('image', blank=True, null=True)
     title = models.fields.CharField(max_length=100)
     content = models.fields.CharField(max_length=1000)
     date = models.fields.DateField()
