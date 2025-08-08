@@ -146,25 +146,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # where your CSS/JS files are in dev
 ]
 
-# Default file storage
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Media URL (served from Cloudinary)
-MEDIA_URL = '/media/'
-
-
+# Cloudinary config
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dqpdbr27f',
-    'API_KEY': '522791469786293',
-    'API_SECRET': 'pxSojL2MAQB0YiFIL7WBcWtio3g',
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
 }
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
-# Allow local dev without env var by falling back to dict config
-if not CLOUDINARY_URL:
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': 'dqpdbr27f',
-        'API_KEY': '522791469786293',
-        'API_SECRET': 'pxSojL2MAQB0YiFIL7WBcWtio3g',
-    }
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_URL = '/media/'
