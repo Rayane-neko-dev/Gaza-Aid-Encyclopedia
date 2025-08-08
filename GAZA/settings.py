@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'links',
     'articles',
     'contactus',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -144,9 +146,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # where your CSS/JS files are in dev
 ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# Default file storage
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+# Media URL (served from Cloudinary)
+MEDIA_URL = '/media/'
 
 
 CLOUDINARY_STORAGE = {
