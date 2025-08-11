@@ -7,7 +7,7 @@ class Article(models.Model):
     article_id = models.fields.IntegerField()
     image = CloudinaryField('image', blank=True, null=True)
     title = models.fields.CharField(max_length=100)
-    content = models.fields.CharField(max_length=1000)
+    content = models.fields.CharField(max_length=100000)
     date = models.fields.DateField()
 
     def __str__(self):
