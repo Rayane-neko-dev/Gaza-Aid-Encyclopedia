@@ -1,169 +1,122 @@
-   {% extends "base.html" %} 
-  {% load widget_tweaks %}  
+{% extends "base.html" %}
+{% load widget_tweaks %}
 {% load static %}
-  
-    {% block content %}
-    
-    <!-- ################# Slider Starts Here#######################--->
-     <div class="slider">
-        <!-- Set up your HTML -->
-        <div class="owl-carousel " id="slider1">
+
+{% block content %}
+
+<!-- ################# Slider Starts Here ####################### -->
+<div class="slider" aria-label="Gaza Donation Awareness Slider">
+    <div class="owl-carousel" id="slider1">
+
+
+        <!-- Slide 2 -->
+        <div class="item">
             <div class="slider-img">
-                <div class="item">
-                    <div class="slider-img"><img src="{% static 'assets/images/slider/gaza1.jpg'%}" alt=""></div>
-
-                      <div class="container">
-                        <div class="row">
-                            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                                <div class="slider-captions">
-                                    <h1 class="slider-title">FREE PALESTINE</h1>
-                                
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <img src="{% static 'assets/images/slider/gaza2.jpg' %}" alt="Gaza children humanitarian aid - support Palestine">
             </div>
-            <div class="item">
-                <div class="slider-img"><img src="{% static 'assets/images/slider/gaza2.jpg'%}" alt=""></div>
-                 <div class="container">
-                        <div class="row">
-                            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                                <div class="slider-captions">
-                                    <h1 class="slider-title">FREE PALESTINE</h1>
-                                
-                                </div>
-                            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                        <div class="slider-captions">
+                            <h1 class="slider-title">Help Gaza Families Survive</h1>
+                            <p class=" slider-text">Your donation can provide food, shelter, and medical aid</p>
                         </div>
-                    </div>
-                
-            </div>
-            <div class="item">
-                <div class="slider-img"> <img src="{% static 'assets/images/slider/gaza3.jpg'%}" alt=""></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                                <div class="slider-captions">
-                                    <h1 class="slider-title">FREE PALESTINE</h1>
-                                
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-            </div>
-        </div>
-    </div>
-    
-    
-    
-    
-  
-
-	
-  <section class="a-societal-mission" >
-
-  
- <div class="session-title" id="presentation">
-  <h2>OUR GOAL</h2>
- </div>
-
-  <section class="motdurecteur">
-    <p> 
-        Gaza Aid Encyclopedia is a trusted online platform dedicated to supporting the people of Gaza through verified donation links, safe fundraising campaigns, and informative articles.
-       We carefully curate and verify all donation sources to ensure that your support reaches legitimate and impactful humanitarian efforts.
-
-    </p>
-
-  </section>
- 
-
-  </section>
-
-    
-    
-<!-- ################# Articles #######################--->
-
-
-
-<div class="popular-cources">
-    <div class="container">
-        <div class="session-title" id="actu">
-            <h2>Articles</h2>
-
-        </div>
-
-        <div class=" courc-ro"> 
-        <div class="popular-cources-slider owl-carousel" id="slider2">
-   
-            {% for post in articles %}
-            <div class="rayane"> 
-                <div class="courc-card">
-                    {% if post.image %}
-                        <img src="{{ post.image.url}}" alt="">
-                    {% else %}
-                        <img src="{% static 'assets/images/cources/cource-1.jpg' %}" alt="default image">
-                    {% endif %}
-                    <div class="cource-det">
-                        <ul>
-                            <li>
-                                <h6>
-                                     <a href="{% url 'article_detail' post.article_id %}" style="color: black; text-decoration: none;">
-                                        {{ post.title }}
-                                    </a>
-                                </h6>
-                            </li>
-                            <li><i class="far fa-calendar-plus"></i> {{ post.date|date:"F d, Y" }}</li>
-                        </ul>
                     </div>
                 </div>
             </div>
-        {% endfor %}
         </div>
-    </div>
-</div>  
 
-  <a href="{% url 'articles'%}"> <input type="button" class="buttonR" value=" Toute l'actualité"/></a>
-   
-      </div>
-    
-   
-  
-<!-- ################# Links  #######################--->
+      
 
-      <div class="our-blog">
-  <div class="container">
-    <div class="session-title row">
-      <h2>LINKS</h2>
     </div>
-
-    {% for link in links %}
-    <div class="row-blog row">    
-      <div class="col-md-10 vbf mx-auto">
-        <div class="blog-card row">
-          <div class="col-3 img-cv2">
-            {% if link.image %}
-              <img src="{{ link.image.url }}" alt="">
-            {% else %}
-              <img src="{% static 'assets/images/lien utile/default.png' %}" alt="default image">
-            {% endif %}
-          </div>
-          <div class="col-7 setv">
-            <h4>{{ link.title }}</h4>
-            <p>{{ link.content }}</p>
-            <a id="linkfac" href="{{ link.link }}" target="_blank" rel="noopener">go to website <i class="fa fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-    <a href="{% url 'links'%}"> <input type="button" class="buttonR" value=" Tout les liens "/></a>
-   
 </div>
 
-    
-    
-    
-        {% endblock %}
+<!-- ################# Mission Section ####################### -->
+<section class="a-societal-mission" id="presentation">
+    <div class="session-title">
+        <h2>Our Mission: Verified Gaza Donations</h2>
+    </div>
+    <section class="motdurecteur">
+        <p>
+            Gaza Aid Encyclopedia is an independent online platform committed to helping the people of Gaza
+            through <strong>verified donation links</strong>, <strong>safe fundraising campaigns</strong>, and fact-checked humanitarian resources.
+            Every campaign listed is carefully vetted to ensure your contribution directly supports <em>authentic and effective relief efforts</em>.
+        </p>
+    </section>
+</section>
+
+                        
+
+  
+        
+  <!-- ################# GAZA NUMBERS #######################--->
+
+
+    <div class="doctor-message">
+        <div class="inner-lay">
+            <div class="container">
+               <div class="row session-title">
+                   <h2>Key Humanitarian Figures in Gaza</h2>
+               </div>
+                <div class="row">
+                    <div class="col-sm-3 numb">
+                        <h3 class="num" data-val="25000">000</h3>
+                        <span >children Killed </span>
+                    </div> 
+                    <div class="col-sm-3 numb">
+                        <h3 class="num" data-val="13000">18+</h3>
+                        <span>children injured </span>
+                    </div>
+                    <div class="col-sm-3 numb">
+                        <h3 class="num" data-val="200">000</h3>
+                        <span>Journalist killed</span>
+                    </div>
+                    <div class="col-sm-3 numb">
+                        <h3 class="num" data-val=" 2100000">52+</h3>
+                        <span>Person starving</span>
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+
+    </div>     
+         
+         
+
+<!-- ################# Links Section ####################### -->
+<section class="our-blog" id="li nks">
+    <div class="container">
+        <div class="session-title row">
+            <h2>Trusted Donation Links for Gaza</h2>
+        </div>
+        {% for link in links %}
+        <div class="row-blog row">
+            <div class="col-md-10 vbf mx-auto">
+                <div class="blog-card row">
+                    <div class="col-3 img-cv2">
+                        {% if link.image %}
+                            <img src="{{ link.image.url }}" alt="{{ link.title }} donation link">
+                        {% else %}
+                            <img src="{% static 'assets/images/lien utile/default.png' %}" alt="Default Gaza donation link image">
+                        {% endif %}
+                    </div>
+                    <div class="col-7 setv">
+                        <h4>{{ link.title }}</h4>
+                        <p>{{ link.content }}</p>
+                        <a id="linkfac" href="{{ link.link }}" target="_blank" rel="noopener nofollow">
+                            Donate <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'links' %}">
+        <input type="button" class="buttonR" value="View All Links">
+    </a>
+</section>
+
+{% endblock %}

@@ -1,38 +1,57 @@
 {% load static %}
-<header class="header">
-
-  <div class="header-top">
+<header class="header" role="banner">
+  
+  <!-- Top Bar with Slogan -->
+  <div class="header-top bg-dark">
     <div class="container">
       <div class="row">
         <div class="col-12 text-center text-white py-2">
-          <ul class="inline-list">
-            <li>Workers of the world, unite!</li>
+          <ul class="inline-list" aria-label="Solidarity message">
+            <li>
+              <strong>Workers of the world, unite!</strong> | 
+              <span>Support Gaza Humanitarian Aid – Donate Today</span>
+            </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <nav class="nav container">
+  <!-- Main Navigation -->
+  <nav class="nav container" role="navigation" aria-label="Main site navigation">
+    
+    <!-- Logo -->
     <div class="nav__data">
-      <a href="#" class="nav__logo">
-        <img src="{% static 'assets/images/palestine-flag-png-38276.png' %}" alt="Logo">
+      <a href="{% url 'home' %}" class="nav__logo" aria-label="Gaza Aid Encyclopedia - Home">
+        <img src="{% static 'assets/images/palestine-flag-png-38276.png' %}" 
+             alt="Palestine flag - Gaza Aid Encyclopedia humanitarian donation platform logo" 
+             width="60" height="40">
       </a>
-
-      <!-- Mobile toggle button -->
-      <div class="nav__toggle" id="nav-toggle">
-        <i class="ri-menu-line nav__burger"></i>
-        <i class="ri-close-line nav__close"></i>
+      <!-- Mobile Menu Toggle -->
+      <div class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
+        <i class="ri-menu-line nav__burger" aria-hidden="true"></i>
+        <i class="ri-close-line nav__close" aria-hidden="true"></i>
       </div>
     </div>
 
+    <!-- Menu Links -->
     <div class="nav__menu" id="nav-menu">
       <ul class="nav__list">
-        <li><a href="{% url 'home'%}" class="nav__link" data-i18n="home">Home</a></li>
-        <li><a href="{% url 'links'%}" class="nav__link" data-i18n="company">Links</a></li>
-        <li><a href="{% url 'articles'%}" class="nav__link" data-i18n="company">Articles</a></li>
-        <li><a href="{% url 'contactus'%}" class="nav__link" data-i18n="company">Contact Us</a></li>
+        <li>
+          <a href="{% url 'home' %}" class="nav__link" title="Gaza Aid Encyclopedia Home">Home</a>
+        </li>
+        <li>
+          <a href="{% url 'links' %}" class="nav__link" title="Verified Gaza donation and fundraising links">
+            Verified Donation Links
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'contactus' %}" class="nav__link" title="Contact Gaza Aid Encyclopedia team">
+            Contact Us
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
 </header>
+
