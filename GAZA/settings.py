@@ -17,7 +17,7 @@ SECRET_KEY = os.getenv(
     'unsafe-secret-key-for-dev'  # fallback for local dev
 )
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
     'gaza-aid-encyclopedia.onrender.com',
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
 
     # Third-party apps
     'widget_tweaks',
+    'cloudinary',
+    'cloudinary_storage',
 
     # Local apps
     'home',
@@ -51,7 +53,7 @@ INSTALLED_APPS = [
 # -------------------------------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # static files in production
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # must be here for static files in production
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -87,10 +89,11 @@ WSGI_APPLICATION = 'GAZA.wsgi.application'
 # DATABASE
 # -------------------------------------------------
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(
+        os.environ.get("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
 
 # -------------------------------------------------
@@ -112,18 +115,26 @@ USE_I18N = True
 USE_TZ = True
 
 # -------------------------------------------------
-# STATIC FILES
+# STATIC & MEDIA FILES
 # -------------------------------------------------
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+MEDIA_URL = '/media/'
+
+# Enable compressed static files in production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # -------------------------------------------------
-# MEDIA FILES
+# CLOUDINARY CONFIG
 # -------------------------------------------------
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # -------------------------------------------------
 # DEFAULT PRIMARY KEY FIELD TYPE
