@@ -4,11 +4,7 @@ from cloudinary.models import CloudinaryField
 
 class Link(models.Model):
     link_id = models.fields.IntegerField()
-    image = models.ImageField(
-        upload_to='links/',  # stores images in media/links locally
-        blank=True,
-        null=True
-    )
+    image = image = CloudinaryField('image', blank=True, null=True)
     title = models.fields.CharField(max_length=100)
     content = models.fields.CharField(max_length=1000)
     date = models.fields.DateField()
